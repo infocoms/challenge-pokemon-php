@@ -1,12 +1,24 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-$base = "http://pokeapi.co/api/v2/pokemon";
-$id = 1;
-$data = file_get_contents($base.$id."/");
+$url = "https://pokeapi.co/api/v2/pokemon";
+$id = 3;
+$data = file_get_contents($url.'/'.$id);
 $pokemon = json_decode($data);
+$test = $pokemon->name;
+$move1 = $pokemon->moves[0]->move->name;
+$move2 = $pokemon->moves[1]->move->name;
+$move3 = $pokemon->moves[2]->move->name;
+$move4 = $pokemon->moves[3]->move->name;
+$image = $pokemon->sprites->front_default;
+$type = $pokemon->types[0]->type->name;
 
-echo $pokemon->name;
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,24 +37,43 @@ echo $pokemon->name;
 </head>
 <body>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="Pokedex">
-    <img src="Img/pokedex.png" alt="pokedex">
+    <img src="pokedex.png" alt="pokedex">
 </div>
 
 <div id="searchBox">
     <label>
-        <input type="text" class="form-control" id="input" placeholder="Poké Name/ID">
+        <input type="text" name="inpput" class="form-control" id="inpput" value="1">
     </label>
+
 </div>
 
 <div id="displayBox">
-    <img id="pokemonImg" src="Img/pokeball.svg" alt="pokemon">
+    <img id="pokemonImg" src="<?php
+     echo $image ?>" alt="pokemon">
 </div>
 
 
 <div id="infoBox">
-    <p id="name">Info . .</p>
-    <div class="overflow-auto" id="move"></div>
+    <p id="name" value="">
+        <?php
+        echo "Name: $test &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ID: $id <br> Type: $type" ; ?>
+    </p>
+    <div class="overflow-auto" id="move"><?php
+        echo "Moves: <br> $move1 <br> $move2 <br> $move3 <br> $move4 <br>"; ?> </div>
 
 </div>
 <div id="displayBoxBg">
