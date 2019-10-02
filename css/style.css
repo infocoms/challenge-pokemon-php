@@ -110,8 +110,8 @@ body, html {
 }
 #search{
     position: absolute;
-    left: 69.8%;
-    top: 69.1%;
+    right: 10%;
+    top: -128%;
     z-index: 7;
     width: 2%;
     height: 4%;
