@@ -117,9 +117,14 @@ if ($evopokname === NULL) {
     </div>
 </div>
 
-<button id="left"> <</button>
-<button id="right"> ></button>
 
+<form id="searchBox2" method="post">
+    <button id="left" type="submit" value="<?php echo $id = $_POST['inpput']-1; ?>" name="inpput" ><</button>
+</form>
+
+<form id="searchBox3" method="post">
+<button id="right" type="submit" value="<?php echo $id = $_POST['inpput']+1; ?>" name="inpput"> ></button>
+</form>
 
 </body>
 
